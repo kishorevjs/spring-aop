@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Aspect
 @Configuration
-public class BeforeAspect {
+public class UserAccessAspect {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -18,6 +18,7 @@ public class BeforeAspect {
 
     @Before("execution(* com.in28minutes.spring.aop.springaop.business.*.*(..))")
     public void before(JoinPoint joinPoint){
+        logger.info("Check for user access");
         logger.info("Intercepting method call - {}", joinPoint);
     }
 }
