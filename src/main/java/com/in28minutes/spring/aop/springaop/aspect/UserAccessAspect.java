@@ -16,7 +16,7 @@ public class UserAccessAspect {
     //What kind of method calls I would intercept
     //execution (* PACKAGE.*.*(..))
 
-    @Before("execution(* com.in28minutes.spring.aop.springaop..*.*(..))") //PointCut : "execution(* com.in28minutes.spring.aop.springaop..*.*(..))"
+    @Before("com.in28minutes.spring.aop.springaop.aspect.CommonJoinPointConfig.dataLayerExecution()") //PointCut : "execution(* com.in28minutes.spring.aop.springaop..*.*(..))"
     public void before(JoinPoint joinPoint){ //Join Point - A point which belongs to the execution of a method/handling exception
         //Advice - logic to perform
         logger.info("Check for user access");

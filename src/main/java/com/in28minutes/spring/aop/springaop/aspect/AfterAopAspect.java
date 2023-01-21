@@ -14,7 +14,7 @@ public class AfterAopAspect {
 
     //To intercept the return values
     @AfterReturning(
-            value = "execution(* com.in28minutes.spring.aop.springaop..*.*(..))",
+            value = "com.in28minutes.spring.aop.springaop.aspect.CommonJoinPointConfig.businessLayerExecution()",
             returning = "result")
     public void afterReturning(JoinPoint joinPoint, Object result){
         logger.info("{} returned with value {}", joinPoint, result);
@@ -22,14 +22,14 @@ public class AfterAopAspect {
 
     //To intercept an exception
     @AfterThrowing(
-            value = "execution(* com.in28minutes.spring.aop.springaop..*.*(..))",
+            value = "com.in28minutes.spring.aop.springaop.aspect.CommonJoinPointConfig.businessLayerExecution()",
             throwing = "exception")
     public void afterException(JoinPoint joinPoint, Object exception){
         logger.info("{} exception with {}", joinPoint, exception);
     }
 
     //To intercept the return values or exception
-    @After("execution(* com.in28minutes.spring.aop.springaop..*.*(..))")
+    @After("com.in28minutes.spring.aop.springaop.aspect.CommonJoinPointConfig.businessLayerExecution()")
     public void after(JoinPoint joinPoint){
         logger.info("Using after AOP interception {}", joinPoint);
     }
