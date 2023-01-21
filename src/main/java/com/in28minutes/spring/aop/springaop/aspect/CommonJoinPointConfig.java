@@ -9,4 +9,7 @@ public class CommonJoinPointConfig {
 
     @Pointcut("execution(* com.in28minutes.spring.aop.springaop.data.*.*(..))")
     public void businessLayerExecution(){}
+
+    @Pointcut("@annotation(com.in28minutes.spring.aop.springaop.aspect.TrackTime)")
+    public void trackTimeAnnotation(){}
 }
